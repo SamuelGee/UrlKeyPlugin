@@ -93,6 +93,7 @@ dns check - secret file from augusta, shut down apache reverse check to augusta
 separate google account.
 note: you can safely close browser window when time-out counts down - it's just interface. Countdown "counts down" on server-side.
 its anonymous, telegram is also anon, see youd ID, not phone num.
-account - pwd can be short, 3x and self-destruction.
+account - pwd can be short, 3x and self-destruction. Save it to your keychain and you have biometric keepass access-control.
+
 
 
