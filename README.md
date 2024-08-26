@@ -130,12 +130,12 @@ https://blog.elcomsoft.com/2024/05/icloud-extraction-turns-twelve/
 But synchronizing Apple Keychain to your Windows laptop is probably bad idea. (Apple Password app for Windows)
 
 ## iPhone vs Laptop - vectors of attack
-Your phone is locked and encrypted most of time. You can switch off biometry unlock with simple button-strokes and setup lock or data self-destruction after some number of wrong attempts.
+Your phone is locked and encrypted most of the time. You can switch off biometry-unlock with simple button-strokes and setup lock or data self-destruction after some number of wrong attempts.
 
-But laptop is different animal. Laptop is usually opened and unlocked many hours of the day. It's more prone to malware and also to evil hardware via usb peripherals - e.g. keylogger built in USB cable. So even if you have Macbook with Apple T2 chip, it's much safer to have Keychain on iPhone and iCloud only, in my opinion. I use Windows on Intel Macbook, but even if I switch to Apple laptop one day, I would stay with Keepass or something similar to store secrets which I wouldn't like to store in Keychain. Another layer of security. And while I want to stay with Keepass, I want strong encryption, high entropy and not typing like a slave (while being listened by keylogger), hence this plugin...
+But laptop is different animal. Laptop is usually opened and unlocked many hours of the day. It's more prone to malware and also to evil hardware via usb peripherals - e.g. keylogger built in USB cable. So even if you have Macbook with Apple T2 chip, it's much safer to have Keychain on iPhone and iCloud only, in my opinion. I use Windows on Intel Macbook, but even if I switch to Apple laptop one day, I would stay with Keepass or something similar to store secrets which I wouldn't like to store in Keychain. Another layer of security. And while I want to stay with Keepass, I want strong encryption, high entropy and not typing like crazy (while being listened by keylogger), hence this plugin...
 
 # FAQ:
-- yes you can safely close browser window when time-out counts down - it's just interface. Countdown "counts down" on server-side.
+- yes you can safely close browser window when time-out counts down - it's just an interface. Countdown "counts down" on server-side.
 - yes its anonymous, only your IP is visible. If you are behind proxy (e.g. Apple Icloud private relay), then even your IP is hidden. Telegram is also anon, plugin sees your telegram ID, not phone number.
 - plugin account - password can be short, 3x failed attempt = self-destruction. Save it to your keychain and you have biometric-keepass-access-control.
 
