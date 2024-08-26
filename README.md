@@ -91,7 +91,7 @@ If you loose internet or Iowa server goes down, you can open your kdbx files wit
 I am a big fan of 1password or ProtonPass. The problem is master password to these services. While it's true that they are online services, so they can block password guessing to your account after few attempts, still you have local copy of your database on your machine. They work offline too. Even when you have free version of ProtonPass, Chrome extension only, local copy of database is still on your machine. And it's encrypted only by your master password. That's why 1password has "traveler mode", so you can unload some vaults when travelling to Mexico. Vault is just encrypted database file. So here we go again, same problem as KeePass and stolen laptop and brute force dictionary guessing with unlimited time and resources. That is why 1password suggests you should use 4-5 words passphrase. Same rules apply for ProtonPass and KeePass. Yet KeePass offers an advantage: you can choose crypto algorithm and you can setup params for Argon or setup number of rounds for AES-KDF chain. 1password uses 100K iterations to keep the program fast even on slower computers and phones. Yet my 10-years old laptop is happy with 21M iterations (Keepass 1-sec delay benchmark). ProtonPass uses Argon2d, but still it's weakened by passphrase. 
 
 ## 4-5 words passphrase. 
-It's brain-bloatware. You may think that you can choose passphrase with at least grammatical sense. "The sonic strap was grinding passably a sunlamp before his lawless runt". Or "a sedative is trashing an evergreen". This weakens your passphrase very much, much less combinations to guess, compared to Diceware dictionary or so. Correct horse battery staple. Too short anyway.
+It's a brain-bloatware. You may think that you can choose passphrase with at least grammatical sense. "The sonic strap was grinding passably a sunlamp before his lawless runt". Or "a sedative is trashing an evergreen". This weakens your passphrase very much, much less combinations to guess, compared to Diceware dictionary or so. Correct horse battery staple. Too short anyway.
 
 ## Clusterization of GPU and GPU pools
 Big cloud providers offer to rent 1000 GPUs in hourly rate. GPUs are cheaper and more powerfull every year. Is your 5-word passphrase safe? Also, there are GPU pools known from the crypto mining world.
@@ -115,9 +115,9 @@ Passkeys are good solution for online logins. High entropy, challenge-response t
 
 So the question arises: How to safely use, save, and backup passkeys???
 
-For me, Yubikey is not good option. Another piece of hardware to carry. I don't want that. Low flexibility if you need to use backup - just another hardware you have to keep somewhere and get to it. If your laptop gets stolen in Mexico, with your Yubikey in it, and your backup-youbikey is in Chicago...
+For me, Yubikey is not good option. Another piece of hardware to carry. I don't want that. Low flexibility if you need to use backup - just another hardware you have to keep somewhere and get to it. If your laptop gets stolen while you're in Mexico, with your Yubikey in it, and your backup-youbikey is in Chicago...
 
-Using passkeys with just Windows: If you don't have TPM2 chip (with good certificate), then your Windows Hello is stored only as file. So we are back in a problem with offline file, it can be brute forced.
+Using passkeys with just Windows: If you don't have TPM2 chip (with correct certificate), then your Windows Hello is stored only as file. It's encrypted by 6-digits pin only. Disaster. 
 
 If you have TPM2, your passkeys are probably as safe as with Youbikey + you don't have to carry another usb thing. Good, but has Microsoft already launched cloud-backup of passkeys? I don't know (08/2024). If it hasn't, if you loose your laptop, then your passkeys are lost for good.
 
