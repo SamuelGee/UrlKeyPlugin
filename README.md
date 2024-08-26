@@ -5,10 +5,10 @@ Keepass plugin for providing master key from URL
 
 1. Provides strong password-key: 48 bytes, 260+ bits entropy
 2. You don't have to type long password/passphrase like a slave
-3. You don't have to remember non-sensical passphrases
+3. You don't have to remember non-sensical passphrases like CIA agent lost in Tehran
 4. You get remote control of your keys via internet, independent of device
 5. Execute different security policies for yourself, based on environment and situations you happened to be
-6. In case of danger, you can destroy all your keys in 3 seconds
+6. In case of danger, you can destroy all your keys on server in 3 seconds
 7. Telegram notifications about accessing your keys
 
 (more elaboration below)
@@ -16,7 +16,7 @@ Keepass plugin for providing master key from URL
 # Demo:
 https://iowa.root.sx/plugin/manage/DEMOxyzWbVDit67uwA2DZbePRqmFoNOfVWkWyDALDhy20ZYc
 
-passwords is demo
+password is demo
 
 # New Account:
 https://iowa.root.sx/plugin
