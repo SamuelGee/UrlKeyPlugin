@@ -55,7 +55,7 @@ This way you can set up all your KeePass databases. If everythings works, delete
 
 10. Open link to your Iowa account in browser of your mobile phone. You can save it to your home screen (and/or to your bookmarks), so then you can run it as an app.
 11. You don't have to log out. (no session cookies). You are logged out as soon as your phone unload the page from memory, or as soon as you close the tab in browser.
-12. In your pc browser, copy and Backup your account_id and password, also backup all your keys somewhere. To show your key, click on it's name, it opens in new window. (This is how KeePass see it.)
+12. In your pc browser, copy and Backup your account_id and password, also IMPORTANT *backup all your keys* somewhere. To show your key, click on it's name, it opens in new window. (This is how KeePass see it.)
 
 # Examples of how to set up different policies for different situations and environments:
 If you are in a safe environment, e.g. at home, and you use some of your kdbx frequently, you can turn on your key with no time-out (always-on). For convenience. You can also combine Key from Iowa with some short password or numeric pin (step 8 - password field) - this way you still have "48 bytes + pin = strong password" + you have convenience + you're protected against someone just runnig in your opened laptop and getting into your Keepass with just Enter.
