@@ -83,6 +83,9 @@ Server is backed up daily to my private AWS S3 bucket. Encrypted.
 
 Server was built with separate google account.
 
+# Recovery from keys backup
+If you loose internet or Iowa server goes down, you can open your kdbx files with Iowa keys you have backed up (step 12). Just copy&paste them to password field and choose None Keyfile.
+
 # Notes:
 ## Cloud password managers
 I am a big fan of 1password or ProtonPass. The problem is master password to these services. While it's true that they are online services, so they can block password guessing to your account after few attempts, still you have local copy of your database on your machine. They work offline too. Even when you have free version of ProtonPass, Chrome extension only, local copy of database is still on your machine. And it's encrypted only by your master password. That's why 1password has "traveler mode", so you can unload some vaults when travelling to Mexico. Vault is just encrypted database file. So here we go again, same problem as KeePass and stolen laptop and brute force dictionary guessing with unlimited time and resources. That is why 1password suggests you should use 4-5 words passphrase. Same rules apply for ProtonPass and KeePass. Yet KeePass offers an advantage: you can choose crypto algorithm and you can setup params for Argon or setup number of rounds for AES-KDF chain. 1password uses 100K iterations to keep the program fast even on slower computers and phones. Yet my 10-years old laptop is happy with 21M iterations (Keepass 1-sec delay benchmark). ProtonPass uses Argon2d, but still it's weakened by passphrase. 
