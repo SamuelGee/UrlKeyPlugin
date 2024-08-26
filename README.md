@@ -44,7 +44,7 @@ Delete/replace last 3 lines with your data.
 
 name_of_yourKey:account_id/key_name
 
-4. Run KeePass to see if everything works - now you should see your KeyNames in MasterKey selectbox.
+4. Run KeePass to see if everything works - now you should see your KeyNames in KeyFile selectbox.
 5. Backup your keepass kdbx files to some temporary directory.
 6. Open your keepass kdbx as you usually do.
 7. Go to your Iowa account in browser and Turn on your keys with no time-out.
@@ -66,9 +66,9 @@ If your laptop gets stolen or lost, you should destroy your current Iowa account
 
 If you loose your laptop and your phone too, you should turn to your emergency backups. So definitely you should have backup of your Iowa keys somewhere away of your laptop - to be protected against stolen laptop to be decrypted. 
 
-If you have new laptop with TPM 2.0 and Bitlocker you should be safe when you loose it, even without this plugin. Yet this plugin gives you more safety even for another situations. Also, TPM 1 turned out to not be very safe (bus listening) and TPM 2 ... well, recently has been discovered that manufacturers sold thousands of TPM2 laptops encrypted with demo certificates which are publicly available in github. Better safe than sorry.
+If you have new laptop with TPM 2.0 and Bitlocker you should be safe when you loose it, even without this plugin. Yet this plugin gives you more safety even if someone gets to your kdbx file. Also, TPM 1 turned out to not be very safe (bus listening) and TPM 2 ... well, recently has been discovered that manufacturers sold thousands of TPM2 laptops encrypted with demo certificates which are publicly available in github. Better safe than sorry.
 
-It's also nice, that if you forget to lock your laptop and move away from home/office, you can lock access to keepass via your phone, when you realize it. Just turn the keys off.
+It's also nice, that if you forget to lock your laptop and move away from home/office, you can lock access to keepass via your phone, when you recall you keys are turned On. Just turn the keys off.
 
 # How to set up MiniKeepass or Keepassium, phone apps for keepass sync databases:
 Login to your Iowa account and click on your key name, your 48-byte key will open in a new tab. This is your password, just copy and paste it to app. Or you can save it as a text file to your phone storage and use it as master key (probably less safe).
@@ -77,23 +77,122 @@ Login to your Iowa account and click on your key name, your 48-byte key will ope
 You can set up Telegram notifications, so you'll be notified when your keys are used, or even requested and not provided, because they were turned off. This way you'll get info, for example if your laptop was stolen or misused, either successfully or not, depending on your keys to be turned on or off. In worst case scenario, you had your keys ON, your laptop gets stolen, windows account breached or data cloned away, you didn't know about it, you didn't destroy your Iowa account, yet you'll be notidied that your keepass was opened, so you can start blocking accounts, changing passwords etc. This can never happen, if you use that 15-seconds time-out.
 
 # Web service reliability and longevity
-This web service for keys is free, so to make it independent of my credit card, I deployed Ubuntu 22 on free-tier e2-micro on Google Cloud in Iowa, USA. Thanks, Google. Domain is also on free service via freedns.afraid.org, it has a good 20 years track record of reliability. HTTPS is free Let's encrypt certificate. Traffic is encrypted from keepass.exe to server and back. If you want to use your own URL, just replace it in source code and create your own plgx.
+This web service for keys is free, so to make it independent of my credit card, I deployed Ubuntu 22 on free-tier Google Cloud in Iowa, USA. Thanks, Google. DNS for domain is monitored in 1-min interval. Traffic is encrypted from keepass.exe to server and back. If you want to use your own URL, just replace it in source code and create your own plgx. (your URL will still be easy to find out even after compilation, all strings in DLL are visible via decompiler)
 
-Server is backed up daily to my private AWS S3 bucket. Justin Case. 
+Server is backed up daily to my private AWS S3 bucket. Encrypted. 
 
-# Why this solution is better than online password manager (in my opinion):
-I am a big fan of 1password or ProtonPass. The problem is master password to these services. While it's true that they are online services, so they can block password guessing to your account after few attempts, still you have local copy of your database on your machine. They work offline too. Even when you have free version of ProtonPass, Chrome extension only, local copy of database is still on your machine. And it's encrypted by your master password. Yeah yeah. That's why 1password has "traveler mode", so you can unload some vaults when travelling to Mexico. Vault is just encrypted database file. So here we go again, same problem as KeePass and stolen laptop and brute force dictionary guessing with unlimited time and resources. That is why 1password suggests you should use 4-5 words passphrase. Same rules apply for ProtonPass and KeePass. Yet KeePass offers an advantage: you can choose crypto algorithm and you can setup params for Argon or setup number of rounds for AES-KDF chain. 1password uses 100K iterations to keep the program fast even on slower computers and phones. Yet my 10-years old laptop is happy with 21M iterations (Keepass 1-sec delay benchmark). That is 210 times better. Not talking of Argon2d... So why choose 1pass with less security? 
+Server was built with separate google account.
 
-But the more annoying part is that 4-5 words passphrase. This is pure slavery, to type it, and also to remember it! It's unnatural to remember 5 words with no sense. Perhaps it can even cause brain damage. No joke, ask CIA interrogation techniques. Brain-bloatware. You may think that you can choose passphrase with at least grammatical sense. "The sonic strap was grinding passably a sunlamp before his lawless runt". Or "a sedative is trashing an evergreen". Funny, but no. It weakens your passphrase very much, much less combinations to guess, compared to Diceware dictionary or so. Correct horse battery staple. Too short.
+# Notes:
+## Cloud password managers
+I am a big fan of 1password or ProtonPass. The problem is master password to these services. While it's true that they are online services, so they can block password guessing to your account after few attempts, still you have local copy of your database on your machine. They work offline too. Even when you have free version of ProtonPass, Chrome extension only, local copy of database is still on your machine. And it's encrypted only by your master password. That's why 1password has "traveler mode", so you can unload some vaults when travelling to Mexico. Vault is just encrypted database file. So here we go again, same problem as KeePass and stolen laptop and brute force dictionary guessing with unlimited time and resources. That is why 1password suggests you should use 4-5 words passphrase. Same rules apply for ProtonPass and KeePass. Yet KeePass offers an advantage: you can choose crypto algorithm and you can setup params for Argon or setup number of rounds for AES-KDF chain. 1password uses 100K iterations to keep the program fast even on slower computers and phones. Yet my 10-years old laptop is happy with 21M iterations (Keepass 1-sec delay benchmark). ProtonPass uses Argon2d, but still it's weakened by passphrase. 
 
-DRAFT, not finished
+## 4-5 words passphrase. 
+It's brain-bloatware. You may think that you can choose passphrase with at least grammatical sense. "The sonic strap was grinding passably a sunlamp before his lawless runt". Or "a sedative is trashing an evergreen". This weakens your passphrase very much, much less combinations to guess, compared to Diceware dictionary or so. Correct horse battery staple. Too short anyway.
 
-stackexchange
-dns check - secret file from augusta, shut down apache reverse check to augusta
-separate google account.
-note: you can safely close browser window when time-out counts down - it's just interface. Countdown "counts down" on server-side.
-its anonymous, telegram is also anon, see youd ID, not phone num.
-account - pwd can be short, 3x and self-destruction. Save it to your keychain and you have biometric keepass access-control.
+## Clusterization of GPU and GPU pools
+Big cloud providers offer to rent 1000 GPUs in hourly rate. GPUs are cheaper and more powerfull every year. Is your 5-word passphrase safe? Also, there are GPU pools known from the crypto mining world.
+
+With passphrase you get about 70 bits entropy https://passwordbits.com/passphrase-cracking-calculator/
+
+1Password found that it cost about $6 to go through 2^32 (4,294,967,296) combinations of passwords. https://blog.1password.com/cracking-challenge-update/
+
+That was Nvidia GPU pool in 2018, with 210 kilohash per second, 210 KH/s. Price per day was $26 - circa 18 *billion* combinations.
+
+Compare it with 08/2024 price here https://www.nicehash.com/pricing. Those are specialized machines which cannot be used for any algo, but just for a benchmark: They offer renting 1 EXA Hash per day for 1 Bitcoin, $60K. That would put the price of 210 KH to 0.001 USD per day, not $26 per day.
+
+![image](https://github.com/user-attachments/assets/e57b3fac-06d7-43c9-9715-b069857d544e)
+
+So it's likely that for offline file to be ecrypted securely, soon 5 words passphrase will be a minimum. This is not the way to solve the problem. And also because of clusterization and pools, it won't help if everytime you buy new computer with more power, you raise number of KDF rounds and you'll be fine. You won't.
+
+Conclusion: for offline files, you need high entropy. To have high entropy, you need long non-sensical passphrase. Remembering that passphrase is a pain. Typing that passphrase all the time is also pain. And still you'll get just 70 bits entropy. But with this plugin you get 250 bit entropy. Bitcoin private key level of entropy.
+
+## Passkeys, Yubikey, Windows Hello, Apple Keychain, Biometry ...
+Passkeys are good solution for online logins. High entropy, challenge-response talk. Public key is unique, so web-services providers could offer not only password-less login, but also user-id-less login. But they don't. Why? Because people can loose passkeys, so web-services providers need to offer some fallback.
+
+So the question arises: How to safely use, save, and backup passkeys???
+
+For me, Yubikey is not good option. Another piece of hardware to carry. I don't want that. Low flexibility if you need to use backup - just another hardware you have to keep somewhere and get to it. If your laptop gets stolen in Mexico, with your Yubikey in it, and your backup-youbikey is in Chicago...
+
+Using passkeys with just Windows: If you don't have TPM2 chip (with good certificate), then your Windows Hello is stored only as file. So we are back in a problem with offline file, it can be brute forced.
+
+If you have TPM2, your passkeys are probably as safe as with Youbikey + you don't have to carry another usb thing. Good, but has Microsoft already launched cloud-backup of passkeys? I don't know (08/2024). If it hasn't, if you loose your laptop, then your passkeys are lost for good.
+
+Apple Keychain - YES. Keychain is synchronized to icloud, so you have good backup of your passkeys. You can also encrypt your keychain with your own keys, so not even Apple will be able to decrypt it.
+
+https://support.apple.com/guide/security/advanced-data-protection-for-icloud-sec973254c5f/web
+
+https://blog.elcomsoft.com/2024/05/icloud-extraction-turns-twelve/
+
+But synchronizing Apple Keychain to your Windows laptop is probably bad idea. (Apple Password app for Windows)
+
+## iPhone vs Laptop - vectors of attack
+Your phone is locked and encrypted most of time. You can switch off biometry unlock with simple button-strokes and setup lock or data self-destruction after some number of wrong attempts.
+
+But laptop is different animal. Laptop is usually opened and unlocked many hours of the day. It's more prone to malware and also to evil hardware via usb peripherals - e.g. keylogger built in USB cable. So even if you have Macbook with Apple T2 chip, it's much safer to have Keychain on iPhone and iCloud only, in my opinion. I use Windows on Intel Macbook, but even if I switch to Apple laptop one day, I would stay with Keepass or something similar to store secrets which I wouldn't like to store in Keychain. Another layer of security. And while I want to stay with Keepass, I want strong encryption, high entropy and not typing like a slave (while being listened by keylogger), hence this plugin...
+
+# FAQ:
+- yes you can safely close browser window when time-out counts down - it's just interface. Countdown "counts down" on server-side.
+- yes its anonymous, only your IP is visible. If you are behind proxy (e.g. Apple Icloud private relay), then even your IP is hidden. Telegram is also anon, plugin sees your telegram ID, not phone number.
+- plugin account - password can be short, 3x failed attempt = self-destruction. Save it to your keychain and you have biometric-keepass-access-control.
+
+# LINKS:
+https://www.rubydevices.com.au/blog/how-to-hack-keepass
+
+https://bytesoverbombs.io/cracking-everything-with-john-the-ripper-d434f0f6dc1c
+
+https://security.stackexchange.com/questions/117580/recommended-level-of-password-complexity-for-keepass
+
+https://makemeapassword.ligos.net/generate/ReadablePassphrase
+
+https://security.stackexchange.com/questions/3959/recommended-of-iterations-when-using-pbkdf2-sha256/3993#3993
 
 
+https://support.apple.com/guide/security/advanced-data-protection-for-icloud-sec973254c5f/web
+
+https://passwordbits.com/passphrase-cracking-calculator/
+
+https://passwordbits.com/password-cracking-calculator/
+
+https://blog.1password.com/cracking-challenge-update/
+
+https://blog.elcomsoft.com/2024/07/password-breaking-a-to-z/
+
+https://blog.elcomsoft.com/2021/06/breaking-veracrypt-obtaining-and-extracting-on-the-fly-encryption-keys/
+
+Linear scalability with low bandwidth requirements and zero overhead on up to 10,000 computers
+
+Remote deployment and console management
+
+https://www.elcomsoft.com/edpr.html
+
+https://blog.elcomsoft.com/2024/05/icloud-extraction-turns-twelve/
+
+https://blog.elcomsoft.com/2022/08/windows-hello-no-tpm-no-security/
+
+https://passwordbits.com/most-secure-password-manager/
+
+https://proton.me/blog/safe-to-autofill-passwords - autofill exploit
+
+https://blog.1password.com/not-in-a-million-years/
+
+https://theworld.com/~reinhold/diceware.html
+
+
+https://www.newegg.com/lexar-model-ljdf35-32gbnl/p/N82E16820191819
+
+
+https://www.techlicious.com/blog/how-to-use-apple-keychain-passwords-passkeys-on-windows/
+
+
+https://hashsuite.openwall.net/performance
+
+https://hashcat.net/hashcat/
+
+https://null-byte.wonderhowto.com/how-to/crack-ssh-private-key-passwords-with-john-ripper-0302810/
+
+
+https://www.specificenergy.com/blog-posts/passkey-implementation.html
+
+https://www.smashingmagazine.com/2015/12/passphrases-more-user-friendly-passwords/
 
