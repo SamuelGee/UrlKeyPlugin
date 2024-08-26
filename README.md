@@ -55,7 +55,7 @@ This way you can set up all your KeePass databases. If everythings works, delete
 
 10. Open link to your Iowa account in browser of your mobile phone. You can save it to your home screen (and/or to your bookmarks), so then you can run it as an app.
 11. You don't have to log out. (no session cookies). You are logged out as soon as your phone unload the page from memory, or as soon as you close the tab in browser.
-12. In your pc browser, copy and Backup your account_id and password, also IMPORTANT *backup all your keys* somewhere. To show your key, click on it's name, it opens in new window. (This is how KeePass see it.)
+12. In your pc browser, copy and Backup your account_id and password, also IMPORTANT **backup all your keys** somewhere. To show your key, click on it's name, it opens in new window. (This is how KeePass see it.) DON'T FORGET TO BACKUP YOUR KEYS.
 
 # Examples of how to set up different policies for different situations and environments:
 If you are in a safe environment, e.g. at home, and you use some of your kdbx frequently, you can turn on your key with no time-out (always-on). For convenience. You can also combine Key from Iowa with some short password or numeric pin (step 8 - password field) - this way you still have "48 bytes + pin = strong password" + you have convenience + you're protected against someone just runnig in your opened laptop and getting into your Keepass with just Enter.
@@ -97,7 +97,7 @@ With passphrase you get about 70 bits entropy https://passwordbits.com/passphras
 
 1Password found that it cost about $6 to go through 2^32 (4,294,967,296) combinations of passwords. https://blog.1password.com/cracking-challenge-update/
 
-That was Nvidia GPU pool in 2018, with 210 kilohash per second, 210 KH/s. Price per day was $26 - circa 18 *billion* combinations.
+That was Nvidia GPU pool in 2018, with 210 kilohash per second, 210 KH/s. Price per day was $26 - circa 18 **billion** combinations.
 
 Compare it with 08/2024 price here https://www.nicehash.com/pricing. Those are specialized machines which cannot be used for any algo, but just for a benchmark: They offer renting 1 EXA Hash per day for 1 Bitcoin, $60K. That would put the price of 210 KH to 0.001 USD per day, not $26 per day.
 
