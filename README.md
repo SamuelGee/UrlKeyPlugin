@@ -79,7 +79,7 @@ You can set up Telegram notifications, so you'll be notified when your keys are 
 # Web service reliability and longevity
 This web service for keys is free, so to make it independent of my credit card, I deployed Ubuntu 22 on free-tier Google Cloud in Iowa, USA. Thanks, Google. DNS for domain is monitored in 1-min interval. Traffic is encrypted from keepass.exe to server and back. If you want to use your own URL, just replace it in source code and create your own plgx. (your URL will still be easy to find out even after compilation, all strings in DLL are visible via decompiler)
 
-~~ Server is backed up daily to my private AWS S3 bucket. Encrypted. ~~ 
+~~Server is backed up daily to my private AWS S3 bucket. Encrypted.~~ 
 Server is not backed up, for security reasons.
 
 Server was built with separate google account.
