@@ -79,7 +79,8 @@ You can set up Telegram notifications, so you'll be notified when your keys are 
 # Web service reliability and longevity
 This web service for keys is free, so to make it independent of my credit card, I deployed Ubuntu 22 on free-tier Google Cloud in Iowa, USA. Thanks, Google. DNS for domain is monitored in 1-min interval. Traffic is encrypted from keepass.exe to server and back. If you want to use your own URL, just replace it in source code and create your own plgx. (your URL will still be easy to find out even after compilation, all strings in DLL are visible via decompiler)
 
-Server is backed up daily to my private AWS S3 bucket. Encrypted. 
+~~ Server is backed up daily to my private AWS S3 bucket. Encrypted. ~~ 
+Server is not backed up, for security reasons.
 
 Server was built with separate google account.
 
@@ -138,6 +139,8 @@ But laptop is different animal. Laptop is usually opened and unlocked many hours
 - yes you can safely close browser window when time-out counts down - it's just an interface. Countdown "counts down" on server-side.
 - yes its anonymous, only your IP is visible. If you are behind proxy (e.g. Apple Icloud private relay), then even your IP is hidden. Telegram is also anon, plugin sees your telegram ID, not phone number.
 - plugin account - password can be short, 3x failed attempt = self-destruction. Save it to your keychain and you have biometric-keepass-access-control.
+- what is the danger of holding your keys in someone else' server? While you're anonymous and you keep your kdbx on your laptop or your cloud, then your keys are unsuable for that someone. In case you loose your kdbx, you have a copy of it and you can ecnrypt it with new key. While your lost kdbx is encrypted with 48 bytes random string, it's useless for an attacker. I also turned off backup of this server, so I cannot be extrorted to give up your keys. Once you destroy your account, your keys are gone. I don't use any database system, I use plain text file as db. 
+- what is the benefit of this solution? Benefit is having your encrypted database (kdbx) in one place and your strong keys in other place. In 2003 when first Keepass was made, that were a different times. No HW and SW keyloggers all over the place, no cloud computing clusters available to anyone for low prices. Also passwords and digital identities had much less value. If you had long-enough password, you were safe. If you had 48 bytes keys on your USB stick (beautiful thing at the time:), you were even safer. You had kdbx in one place and keys in other place. Today, we have fast internet everywhere and we have cloud - so in the frame of this project, it's replacement of USB stick. And as you can turn your keys ON/OFF via server interface, it's equivalent of plugging/unplugging your USB stick from computer. And it's much better, you can control it remotely and it's never stolen together with your laptop.
 
 # LINKS:
 https://www.rubydevices.com.au/blog/how-to-hack-keepass
