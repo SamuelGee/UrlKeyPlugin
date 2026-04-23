@@ -5,21 +5,21 @@ Keepass plugin for providing master key from URL
 
 1. Provides strong password-key: 48 bytes, 260+ bits entropy
 2. You don't have to type long password/passphrase like a slave
-3. You don't have to remember non-sensical passphrases like CIA agent lost in Tehran
+3. You don't have to remember non-sensical passphrases 
 4. You get remote control of your keys via internet, independent of device
-5. Execute different security policies for yourself, based on environment and situations you happened to be
+5. Execute different security policies, based on environment and situations you happen to find yourself in
 6. In case of danger, you can destroy all your keys on server in 3 seconds
 7. Telegram notifications about accessing your keys
 
 (more elaboration below)
 
 # Demo:
-https://iowa.root.sx/plugin/manage/DEMOxyzWbVDit67uwA2DZbePRqmFoNOfVWkWyDALDhy20ZYc
+https://iowa.zvolen.biz/plugin/manage/DEMOxyzWbVDit67uwA2DZbePRqmFoNOfVWkWyDALDhy20ZYc
 
 password is demo
 
 # New Account:
-https://iowa.root.sx/plugin
+https://iowa.zvolen.biz/plugin
 
 or press "New Account" in demo page bottom.
 
@@ -33,10 +33,10 @@ You should see 3 keys available (from demo account):
 
 ![image](https://github.com/user-attachments/assets/b5ab881d-34d2-47b2-a254-9506756a1274)
 
-Nice thing is that Keepass remembers your last-used Key Provider for each file.
+Keepass remembers your last-used Key Provider for each file.
 
 Now, when you've successfully installed the plugin and it works, you can set it up for yourself:
-1. Create New Account in Iowa server: https://iowa.root.sx/plugin
+1. Create New Account in Iowa server: https://iowa.zvolen.biz/plugin
 2. Create your new key(s)
 3. Edit UrlKeyProvider.cfg with Notepad in your "Documents" folder.
 
@@ -51,24 +51,24 @@ name_of_yourKey:account_id/key_name
 8. Keepass Menu > File > Change Master Key: let password empty, go Expert options: Key File Provider -- and choose the key you've just made. Then Save.
 9. Close KeePass and open it again. Now choose Key File provider and press Enter. You should be in.
 
-This way you can set up all your KeePass databases. If everythings works, delete your backups from temporary dir. Now you can happily wipe all your passwords to keepass from your head.
+This way you can set up all your KeePass databases. If everythings works, delete your backups from temporary dir. Now you can happily wipe out all your passwords to keepass from your mind.
 
 10. Open link to your Iowa account in browser of your mobile phone. You can save it to your home screen (and/or to your bookmarks), so then you can run it as an app.
-11. You don't have to log out. (no session cookies). You are logged out as soon as your phone unload the page from memory, or as soon as you close the tab in browser.
+11. You don't have to log out. (no session cookies, no local storage, RAM only). You are logged out as soon as your phone unload the page from memory, or as soon as you close the tab in browser.
 12. In your pc browser, copy and Backup your account_id and password, also IMPORTANT **backup all your keys** somewhere. To show your key, click on it's name, it opens in new window. (This is how KeePass see it.) DON'T FORGET TO BACKUP YOUR KEYS.
 
 # Examples of how to set up different policies for different situations and environments:
-If you are in a safe environment, e.g. at home, and you use some of your kdbx frequently, you can turn on your key with no time-out (always-on). For convenience. You can also combine Key from Iowa with some short password or numeric pin (step 8 - password field) - this way you still have "48 bytes + pin = strong password" + you have convenience + you're protected against someone just runnig in your opened laptop and getting into your Keepass with just Enter.
+If you are in a safe environment, e.g. at home, and you use some of your kdbx frequently, you can turn on your key with no time-out (always-on). For convenience. You can also combine Key from Iowa with some short password or numeric pin (step 8 - password field) - this way you still have "48 bytes + pin = strong password" + you have convenience + you're protected against someone just running to your opened laptop and getting into your Keepass with just Enter.
 
 For less frequent usage, keep your Iowa keys turned off, and turn them on for 15s when you are going to open your kdbx file. This behavior is also meant to be followed in the unsafe environments, e.g. in office, or while travelling.
 
-If your laptop gets stolen or lost, you should destroy your current Iowa account. You can do it e.g. from your phone, just login 3 times with empty password. URL always looks like this - just account_id changes, e.g. https://iowa.root.sx/plugin/manage/DEMOxyzWbVDit67uwA2DZbePRqmFoNOfVWkWyDALDhy20ZYc. Account self-destroys after 3 wrong attempts (except demo account). Keys associated with that account are destroyed too. This way, even if the thief somehow gets in your laptop, even if he finds your kdbx files and even if he knows about this plugin and he looks at your UrlKeyProvider.cfg file to find your account_id and thus URL to manage your account, he won't be successfull. If he tries to brute force your kdbx file, he won't be successfull either. Password/MasterKey is too long and none-dictionary. No dictionary and GPU mega-cluster would help. Account self-destroyed & too much of entropy!
+If your laptop gets stolen or lost, you should destroy your current Iowa account. You can do it e.g. from your phone, just login 3 times with empty password. URL always looks like this - just account_id changes, e.g. https://iowa.zvolen.biz/plugin/manage/DEMOxyzWbVDit67uwA2DZbePRqmFoNOfVWkWyDALDhy20ZYc. Account self-destroys after 3 wrong attempts (except demo account). Keys associated with that account are destroyed too. This way, even if the thief somehow gets in your laptop, even if he finds your kdbx files and even if he knows about this plugin and he looks at your UrlKeyProvider.cfg file to find your account_id and thus URL to manage your account, he won't be successfull. If he tries to brute force your kdbx file, he won't be successfull either. Password/MasterKey is too long and none-dictionary. No dictionary and GPU mega-cluster would help. Account self-destroyed & too much of entropy!
 
 If you loose your laptop and your phone too, you should turn to your emergency backups. So definitely you should have backup of your Iowa keys somewhere away of your laptop - to be protected against stolen laptop to be decrypted. 
 
 If you have new laptop with TPM 2.0 and Bitlocker you should be safe when you loose it, even without this plugin. Yet this plugin gives you more safety even if someone gets to your kdbx file. Also, TPM 1 turned out to not be very safe (bus listening) and TPM 2 ... well, recently has been discovered that manufacturers sold thousands of TPM2 laptops encrypted with demo certificates which are publicly available in github. Better safe than sorry.
 
-It's also nice, that if you forget to lock your laptop and move away from home/office, you can lock access to keepass via your phone, when you recall you keys are turned On. Just turn the keys off.
+It's also nice, that if you forget to lock your laptop and move away from home/office, you can lock access to keepass via your phone, if your keys are On. Just turn the keys off via phone.
 
 # How to set up MiniKeepass or Keepassium, phone apps for keepass sync databases:
 Login to your Iowa account and click on your key name, your 48-byte key will open in a new tab. This is your password, just copy and paste it to app. Or you can save it as a text file to your phone storage and use it as master key (probably less safe).
@@ -77,12 +77,9 @@ Login to your Iowa account and click on your key name, your 48-byte key will ope
 You can set up Telegram notifications, so you'll be notified when your keys are used, or even requested and not provided, because they were turned off. This way you'll get info, for example if your laptop was stolen or misused, either successfully or not, depending on your keys to be turned on or off. In worst case scenario, you had your keys ON, your laptop gets stolen, windows account breached or data cloned away, you didn't know about it, you didn't destroy your Iowa account, yet you'll be notidied that your keepass was opened, so you can start blocking accounts, changing passwords etc. This can never happen, if you use that 15-seconds time-out.
 
 # Web service reliability and longevity
-This web service for keys is free, so to make it independent of my credit card, I deployed Ubuntu 22 on free-tier Google Cloud in Iowa, USA. Thanks, Google. DNS for domain is monitored in 1-min interval. Traffic is encrypted from keepass.exe to server and back. If you want to use your own URL, just replace it in source code and create your own plgx. (your URL will still be easy to find out even after compilation, all strings in DLL are visible via decompiler)
+This web service for keys is free and runs on AWS Lambda. Traffic is encrypted from keepass.exe to server and back. If you want to use your own URL, just replace it in source code and create your own plgx. (your URL will still be easy to find out even after compilation, all strings in DLL are visible via decompiler)
 
-~~Server is backed up daily to my private AWS S3 bucket. Encrypted.~~ 
-Server is not backed up, for security reasons.
-
-Server was built with separate google account.
+Keys are not backed up, for security reasons.
 
 # Recovery from keys backup
 If you loose internet or Iowa server goes down, you can open your kdbx files with Iowa keys you have backed up (step 12). Just copy&paste them to password field and choose None Keyfile.
@@ -109,7 +106,7 @@ Compare it with 08/2024 price here https://www.nicehash.com/pricing. Those are s
 
 So it's likely that for offline file to be ecrypted securely, soon 5 words passphrase will be a minimum. This is not the way to solve the problem. And also because of clusterization and pools, it won't help if everytime you buy new computer with more power, you raise number of KDF rounds and you'll be fine. You won't.
 
-Conclusion: for offline files, you need high entropy. To have high entropy, you need long non-sensical passphrase. Remembering that passphrase is a pain. Typing that passphrase all the time is also pain. And still you'll get just 70 bits entropy. But with this plugin you get 250 bit entropy. Bitcoin private key level of entropy.
+Conclusion: for offline files, you need high entropy. To have high entropy, you need long non-sensical passphrase. Remembering that passphrase is pain. Typing that passphrase all the time is also pain. And still you'll get just 70 bits entropy. But with this plugin you get 250 bit entropy. Bitcoin private key level of entropy.
 
 ## Passkeys, Yubikey, Windows Hello, Apple Keychain, Biometry ...
 Passkeys are good solution for online logins. High entropy, challenge-response talk. Public key is unique, so web-services providers could offer not only password-less login, but also user-id-less login. But they don't. Why? Because people can loose passkeys, so web-services providers need to offer some fallback.
