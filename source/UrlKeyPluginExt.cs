@@ -34,7 +34,7 @@ namespace UrlKeyPlugin
 				{
 					if (cfgLines[i].Substring(0, 1) == "#") continue;
 					string[] keys = cfgLines[i].Split(':');
-					m_prov[i] = new UrlKeyProvider(keys[0], "https://iowa.root.sx/plugin/"+keys[1]);
+					m_prov[i] = new UrlKeyProvider(keys[0], "https://iowa.zvolen.biz/plugin/"+keys[1]);
 				}
 			}
 		}
